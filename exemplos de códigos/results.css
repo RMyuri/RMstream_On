@@ -1,0 +1,46 @@
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.info {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #666;
+}
+
+.error {
+  grid-column: 1 / -1;
+  color: #e74c3c;
+  text-align: center;
+}
+
+.result-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+.result-card img {
+  width: 100%;
+  display: block;
+}
+.result-card .info {
+  padding: 8px;
+}
+.result-card .title {
+  font-size: 0.9rem;
+  line-height: 1.3em;
+  height: 2.6em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

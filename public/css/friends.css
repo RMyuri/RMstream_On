@@ -1,0 +1,487 @@
+/**
+ * Estilos para o sistema de amizades do RMStream
+ */
+
+/* Container principal */
+.friends-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Cabeçalho da página */
+.friends-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.friends-header h1 {
+    font-size: 2em;
+    color: #fff;
+    margin: 0;
+}
+
+/* Caixa de busca */
+.search-box {
+    position: relative;
+    width: 300px;
+}
+
+.search-box form {
+    display: flex;
+    width: 100%;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 50px 0 0 50px;
+    border: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 15px;
+}
+
+.search-box button {
+    padding: 12px 20px;
+    border-radius: 0 50px 50px 0;
+    border: none;
+    background-color: #1db954;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-box button:hover {
+    background-color: #18a148;
+}
+
+/* Abas (tabs) */
+.friends-tabs {
+    display: flex;
+    border-bottom: 1px solid #333;
+    margin-bottom: 30px;
+}
+
+.friends-tab {
+    padding: 12px 25px;
+    background: none;
+    border: none;
+    color: #bbb;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    font-size: 15px;
+}
+
+.friends-tab:hover {
+    color: white;
+}
+
+.friends-tab.active {
+    color: #1db954;
+}
+
+.friends-tab.active::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #1db954;
+    border-radius: 3px 3px 0 0;
+}
+
+/* Seções de conteúdo */
+.friends-section {
+    margin-bottom: 40px;
+}
+
+.friends-section h2 {
+    font-size: 1.5em;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Estado vazio (sem amigos, sem solicitações, etc.) */
+.empty-list {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #222;
+    border-radius: 10px;
+    color: #aaa;
+}
+
+.empty-list i {
+    font-size: 3em;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.empty-list p {
+    margin: 10px 0;
+    font-size: 1.1em;
+}
+
+/* Cards de solicitação de amizade */
+.friend-request-card, .sent-request-card, .friend-card {
+    background-color: #222;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: all 0.3s;
+}
+
+.friend-request-card:hover, .sent-request-card:hover, .friend-card:hover {
+    background-color: #2a2a2a;
+}
+
+.friend-request-user, .sent-request-user, .friend-card-user {
+    display: flex;
+    align-items: center;
+}
+
+.friend-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+    object-fit: cover;
+}
+
+.friend-info {
+    color: white;
+}
+
+.friend-name {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.friend-username {
+    color: #aaa;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.friend-since {
+    color: #777;
+    font-size: 0.85em;
+}
+
+.friend-actions, .friend-card-actions {
+    display: flex;
+    gap: 10px;
+}
+
+/* Botões de ações de amizade */
+.friend-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.accept-btn {
+    background-color: #1db954;
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #18a148;
+}
+
+.reject-btn, .cancel-btn {
+    background-color: #444;
+    color: white;
+}
+
+.reject-btn:hover, .cancel-btn:hover {
+    background-color: #555;
+}
+
+.message-btn {
+    background-color: #1db954;
+    color: white;
+}
+
+.message-btn:hover {
+    background-color: #18a148;
+}
+
+.unfriend-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.unfriend-btn:hover {
+    background-color: #c0392b;
+}
+
+.view-profile-btn {
+    background-color: #444;
+    color: white;
+}
+
+.view-profile-btn:hover {
+    background-color: #555;
+}
+
+/* Grid de usuários para adicionar */
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.user-card {
+    background-color: #222;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.user-header {
+    height: 100px;
+    background-color: #333;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.user-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #222;
+    object-fit: cover;
+}
+
+.user-body {
+    padding: 60px 20px 20px;
+    text-align: center;
+    margin-top: -50px;
+}
+
+.user-name {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.user-username {
+    color: #aaa;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.user-btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    text-decoration: none;
+}
+
+.add-friend-btn {
+    background-color: #1db954;
+    color: white;
+}
+
+.add-friend-btn:hover {
+    background-color: #18a148;
+}
+
+/* Feedback após ações */
+.feedback {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: white;
+    font-size: 14px;
+    z-index: 10;
+    animation: fadeIn 0.3s;
+}
+
+.feedback.success {
+    background-color: #1db954;
+}
+
+.feedback.error {
+    background-color: #e74c3c;
+}
+
+.feedback.fade-out {
+    animation: fadeOut 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(-10px); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .friends-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .search-box {
+        width: 100%;
+    }
+    
+    .friends-tabs {
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .friends-tab {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+    
+    .friend-request-card, .sent-request-card, .friend-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .friend-actions, .friend-card-actions {
+        margin-top: 15px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+    
+    .users-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+}
+.user-id {
+    font-size: 0.9em;
+    background: #333;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 8px !important;
+}
+
+.user-card-actions {
+    padding: 0 20px 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.view-profile-btn {
+    background: #333;
+    color: white;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.view-profile-btn:hover {
+    background: #444;
+    transform: translateY(-2px);
+}
+
+/* Toast notifications */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #333;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.toast-success {
+    background: #1db954;
+}
+
+.toast-error {
+    background: #ff5252;
+}
+
+.toast-info {
+    background: #3498db;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .friend-actions {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .modal-content {
+        margin: 20% auto;
+        width: 95%;
+    }
+}

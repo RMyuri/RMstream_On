@@ -1,0 +1,127 @@
+.auth-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #181818;
+}
+
+.auth-box {
+    background: #232323;
+    border-radius: 16px;
+    padding: 32px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+.auth-logo {
+    color: #1db954;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 16px;
+    font-size: 2.5em;
+}
+
+.auth-box h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 32px;
+    font-weight: 500;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #e0e0e0;
+    font-size: 0.95em;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 6px;
+    border: 1px solid #444;
+    background: #333;
+    color: #fff;
+    font-size: 1em;
+    transition: all 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #1db954;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(29, 185, 84, 0.2);
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 50px;
+    font-size: 1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-primary {
+    background: #1db954;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #17a74a;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(29, 185, 84, 0.3);
+}
+
+.auth-links {
+    margin-top: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.auth-links a {
+    color: #1db954;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.2s;
+}
+
+.auth-links a:hover {
+    color: #25e76a;
+    text-decoration: underline;
+}
+
+.alert {
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 24px;
+    font-size: 0.95em;
+}
+
+.alert-error {
+    background: rgba(229, 57, 53, 0.1);
+    border: 1px solid rgba(229, 57, 53, 0.3);
+    color: #ff5555;
+}
+
+.alert-success {
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.3);
+    color: #1db954;
+}
+
+.alert a {
+    color: #1db954;
+    text-decoration: underline;
+}

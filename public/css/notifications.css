@@ -1,0 +1,461 @@
+.notifications-container {
+    position: relative;
+    margin-right: 15px;
+}
+
+.notifications-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.notifications-btn:hover {
+    color: #1db954;
+    transform: scale(1.1);
+}
+
+.notifications-btn:active {
+    transform: scale(0.95);
+}
+
+.notifications-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff3b30;
+    color: white;
+    font-size: 0.7em;
+    padding: 2px 5px;
+    border-radius: 10px;
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.notifications-count.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.notifications-dropdown {
+    position: absolute;
+    top: 45px;
+    right: -10px;
+    background-color: #232323;
+    border-radius: 12px;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    width: 350px;
+    max-height: 0;
+    overflow: hidden;
+    z-index: 1000;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+    opacity: 0;
+    transform-origin: top right;
+    transform: scale(0.95) translateY(-10px);
+    pointer-events: none;
+}
+
+.notifications-dropdown.show {
+    max-height: 80vh;
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    pointer-events: auto;
+}
+
+.notifications-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 8px solid #232323;
+}
+
+.notifications-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    background: linear-gradient(to right, #1a1a1a, #232323);
+}
+
+.notifications-header h3 {
+    margin: 0;
+    color: white;
+    font-size: 1.1em;
+}
+
+.mark-all-read-btn {
+    background: none;
+    border: none;
+    color: #1db954;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: all 0.2s;
+    padding: 5px 8px;
+    border-radius: 4px;
+}
+
+.mark-all-read-btn:hover {
+    background-color: rgba(29, 185, 84, 0.2);
+}
+
+.notifications-list {
+    max-height: 350px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #444 #232323;
+}
+
+.notifications-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.notifications-list::-webkit-scrollbar-track {
+    background: #232323;
+}
+
+.notifications-list::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 6px;
+}
+
+.notification-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #333;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.notification-item:last-child {
+    border-bottom: none;
+}
+
+.notification-item:hover {
+    background-color: #2a2a2a;
+    transform: translateX(5px);
+}
+
+.notification-item.unread {
+    background-color: rgba(29, 185, 84, 0.08);
+}
+
+.notification-item.unread:hover {
+    background-color: rgba(29, 185, 84, 0.15);
+}
+
+.notification-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 3px;
+    background-color: transparent;
+    transition: all 0.3s;
+}
+
+.notification-item.unread::after {
+    background-color: #1db954;
+}
+
+.notification-icon {
+    color: #1db954;
+    font-size: 1.2em;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(29, 185, 84, 0.1);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.notification-content {
+    flex: 1;
+}
+
+.notification-text {
+    color: white;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+.notification-time {
+    color: #aaa;
+    font-size: 0.8em;
+}
+
+.mark-read-btn {
+    background: none;
+    border: none;
+    color: #1db954;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    opacity: 0;
+    transform: translateX(10px);
+    flex-shrink: 0;
+}
+
+.notification-item:hover .mark-read-btn {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mark-read-btn:hover {
+    background-color: rgba(29, 185, 84, 0.2);
+}
+
+.notifications-footer {
+    padding: 12px;
+    text-align: center;
+    border-top: 1px solid #333;
+    background: linear-gradient(to right, #232323, #1a1a1a);
+}
+
+.notifications-footer a {
+    color: #1db954;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: all 0.2s;
+    display: block;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.notifications-footer a:hover {
+    background-color: rgba(29, 185, 84, 0.1);
+}
+
+.no-notifications {
+    padding: 30px 20px;
+    text-align: center;
+    color: #aaa;
+}
+
+.no-notifications i {
+    font-size: 2.5em;
+    color: #444;
+    margin-bottom: 15px;
+    display: block;
+}
+
+.notification-loading {
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
+}
+
+.notification-loading i {
+    animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Animações para modais */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0);
+    transition: background-color 0.3s ease;
+}
+
+.modal.show {
+    display: block;
+    animation: fadeInBg 0.3s forwards;
+}
+
+@keyframes fadeInBg {
+    from { background-color: rgba(0,0,0,0); }
+    to { background-color: rgba(0,0,0,0.8); }
+}
+
+.modal-content {
+    background-color: #232323;
+    margin: 15% auto;
+    padding: 25px;
+    border: 1px solid #444;
+    border-radius: 12px;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 30px rgba(0,0,0,0.5);
+    transform: translateY(30px);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1);
+}
+
+.modal.show .modal-content {
+    animation: slideUp 0.5s cubic-bezier(0.2, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-close {
+    float: right;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.modal-close:hover {
+    color: #1db954;
+    transform: rotate(90deg);
+}
+
+/* Estilos para notificações em tela pequena */
+@media (max-width: 600px) {
+    .notifications-dropdown {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        max-width: 100%;
+        border-radius: 0;
+        transform: translateY(-100%);
+    }
+    
+    .notifications-dropdown.show {
+        transform: translateY(0);
+    }
+    
+    .notifications-dropdown::before {
+        display: none;
+    }
+}
+
+/* Adicionar ao final do arquivo para incluir mais animações */
+
+/* Animação de pulsação para o botão de notificações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.notifications-btn.pulse-animation {
+    animation: pulse 0.5s cubic-bezier(0.4, 0, 0.6, 1) 2;
+}
+
+.notifications-btn.active {
+    color: #1db954;
+}
+
+/* Animação para marcar item como lido */
+.notification-item.marking {
+    background-color: rgba(29, 185, 84, 0.2);
+    transition: background-color 0.3s;
+}
+
+.notification-item.clicked {
+    transform: scale(0.98);
+    opacity: 0.8;
+    transition: all 0.2s;
+}
+
+.mark-read-btn.success {
+    color: #1db954;
+    background-color: rgba(29, 185, 84, 0.1);
+}
+
+/* Animações para modais de solicitações enviadas */
+.request-sent-card {
+    transform: translateX(0);
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+.request-sent-card.removing {
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+/* Animação de entrada para itens de modal */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-show-item {
+    animation: fadeInSlideUp 0.4s forwards;
+}
+
+/* Animação para fechar modal */
+.modal.closing {
+    animation: fadeOutBg 0.3s forwards;
+}
+
+.modal.closing .modal-content {
+    animation: slideDown 0.3s forwards;
+}
+
+@keyframes fadeOutBg {
+    from { background-color: rgba(0,0,0,0.8); }
+    to { background-color: rgba(0,0,0,0); }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(30px); opacity: 0; }
+}
+
+/* Animação para botões */
+.friend-btn {
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.friend-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.friend-btn:active {
+    transform: translateY(1px);
+}

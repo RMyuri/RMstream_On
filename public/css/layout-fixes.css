@@ -1,0 +1,169 @@
+/**
+ * Ajustes de layout para corrigir problemas de alinhamento e responsividade
+ */
+
+/* Ajustes globais para garantir que o conteúdo seja apresentado corretamente */
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajustes para o container principal */
+.profile-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Melhorias na responsividade da navegação */
+nav {
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Ajustes para seção de perfil */
+.profile-header {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+}
+
+/* Melhoria na visualização da imagem de capa */
+.profile-cover {
+    width: 100%;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-cover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Ajustes para seção de amigos */
+.friends-section {
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.friends-table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.friends-table {
+    min-width: 600px; /* Garante uma largura mínima para evitar compressão excessiva */
+}
+
+/* Melhoria para os cards e conteúdos */
+.request-sent-card {
+    width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .request-sent-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .request-sent-actions {
+        margin-top: 15px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+    
+    .profile-stats {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .profile-stat {
+        margin-bottom: 10px;
+    }
+    
+    .profile-contact {
+        flex-direction: column;
+    }
+    
+    .profile-contact-item {
+        margin-bottom: 10px;
+    }
+}
+
+/* Correções para modais */
+.modal-content {
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 50px auto;
+    box-sizing: border-box;
+}
+
+/* Ajustes específicos para o modo escuro */
+.notification-item,
+.friend-actions,
+.profile-contact-item,
+.profile-stat {
+    background-color: #1e1e1e;
+    border: 1px solid #333;
+    box-sizing: border-box;
+}
+
+/* Melhoria na visualização da tabela em telas pequenas */
+@media (max-width: 600px) {
+    .friends-table th:nth-child(3),
+    .friends-table td:nth-child(3) {
+        max-width: 120px;
+        width: 120px;
+    }
+    
+    .friend-actions {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+    
+    .friend-action {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Corrige o problema de zoom */
+@media (min-width: 1200px) {
+    .profile-container {
+        max-width: 80%;
+    }
+}

@@ -1,0 +1,306 @@
+.friends-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    color: #1db954;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-form {
+    margin-bottom: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.search-input {
+    flex: 1;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: none;
+    background: #333;
+    color: white;
+    font-size: 1em;
+}
+
+.search-btn {
+    background: #1db954;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.search-btn:hover {
+    background: #18a448;
+    transform: translateY(-2px);
+}
+
+.users-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.user-card {
+    background: #232323;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
+.user-header {
+    background: #1a1a1a;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #1db954;
+}
+
+.user-info {
+    flex: 1;
+}
+
+.user-name {
+    font-weight: bold;
+    color: white;
+    font-size: 1.1em;
+}
+
+.user-username {
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+.user-actions {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.friend-btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-friend {
+    background: #1db954;
+    color: white;
+}
+
+.add-friend:hover {
+    background: #18a448;
+}
+
+.pending-friend {
+    background: #555;
+    color: white;
+    cursor: default;
+}
+
+.cancel-request {
+    background: #444;
+    color: white;
+}
+
+.cancel-request:hover {
+    background: #333;
+}
+
+.accept-friend {
+    background: #1db954;
+    color: white;
+}
+
+.accept-friend:hover {
+    background: #18a448;
+}
+
+.reject-friend {
+    background: #e74c3c;
+    color: white;
+}
+
+.reject-friend:hover {
+    background: #c0392b;
+}
+
+.already-friend {
+    background: #555;
+    color: white;
+    cursor: default;
+}
+
+.btn-group {
+    display: flex;
+    width: 100%;
+    gap: 10px;
+}
+
+.btn-group .friend-btn {
+    flex: 1;
+}
+
+.friend-request-list {
+    margin-bottom: 40px;
+}
+
+.friend-request-card {
+    background: #232323;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.request-user {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.request-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.no-requests, .no-results {
+    background: #232323;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    color: #aaa;
+}
+
+.request-time {
+    color: #aaa;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(229, 57, 53, 0.1);
+    border: 1px solid rgba(229, 57, 53, 0.3);
+    color: #ff5555;
+}
+
+.alert.success {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.3);
+    color: #1db954;
+}
+
+.search-suggestions {
+    background: #232323;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.search-suggestions a {
+    color: #1db954;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.search-suggestions a:hover {
+    color: #25e76a;
+    text-decoration: underline;
+}
+
+.search-tips {
+    font-size: 0.85em;
+    color: #aaa;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.user-id {
+    font-size: 0.85em;
+    color: #aaa;
+    margin-top: 3px;
+    background-color: #2a2a2a;
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 12px;
+}
+
+@media (max-width: 768px) {
+    .users-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .friend-request-card {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .request-user {
+        flex-direction: column;
+    }
+    
+    .request-actions {
+        width: 100%;
+    }
+}
+    }
+    
+    .friend-request-card {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .request-user {
+        flex-direction: column;
+    }
+    
+    .request-actions {
+        width: 100%;
+    }
+}
