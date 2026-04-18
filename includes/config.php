@@ -1,13 +1,17 @@
 <?php
 // Configurações do banco de dados
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'rmstream');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+// Render usa variáveis de ambiente, local usa valores padrão
+define('DB_HOST', getenv('DB_HOST') ?: 'localhost');
+define('DB_NAME', getenv('DB_NAME') ?: 'rmstream');
+define('DB_USER', getenv('DB_USER') ?: 'root');
+define('DB_PASS', getenv('DB_PASS') ?: '');
+
+// Tipo de banco (mysql ou pgsql para PostgreSQL)
+define('DB_TYPE', getenv('DB_TYPE') ?: 'mysql');
 
 // Configurações da aplicação
 define('SITE_NAME', 'RMStream');
-define('SITE_URL', 'http://localhost/RMStream');
+define('SITE_URL', getenv('SITE_URL') ?: 'http://localhost/RMStream');
 define('ADMIN_EMAIL', 'yuriruzbarbosa.07@gmail.com');
 
 // Configurações de segurança
@@ -21,7 +25,15 @@ if (session_status() === PHP_SESSION_NONE) {
 
 // Configuração de fuso horário
 date_default_timezone_set('America/Sao_Paulo');
-
+if (DB_TYPE === 'pgsql') {
+            // PostgreSQL (Render)
+            $dsn = 'pgsql:host=' . DB_HOST . ';dbname=' . DB_NAME;
+            $dsn, DB_USER, DB_PASS);
+        } else {
+            // MySQL (XAMPP local)
+            $dsn = ;
+            $pdo = new PDO($dsn
+        }
 // Função para conexão com o banco de dados
 function getDbConnection() {
     try {
